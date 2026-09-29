@@ -1,0 +1,18 @@
+# Requirements for all four cats_vs_dogs / CIFAR-10 experiment scripts.
+# Tested target: Python 3.10 or 3.11 (avoid 3.12 or 3.13 for experiment 1)
+#
+# Install with:
+#   brew install python@3.11        (Homebrew, only needed for experiment 1)
+#   python3.11 -m venv venv
+#   source venv/bin/activate        (Windows: venv\Scripts\activate)
+#   pip install -r requirements.txt
+#
+# NOTE: tf-models-official is only needed for experiment1_catsdogs_mobilenet_160.py
+# (the tfm.vision.augment.rotate demo). If you only need experiments 2-4, delete
+# that line and you can use a newer, unpinned tensorflow version instead.
+
+tf-models-official==2.19.1
+tensorflow==2.19.1
+tensorflow-datasets>=4.9,<5.0
+numpy<2.0 # Need 1.x for tf-models-official functionality
+matplotlib>=3.7
