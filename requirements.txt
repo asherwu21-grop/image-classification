@@ -10,9 +10,14 @@
 # NOTE: tf-models-official is only needed for experiment1_catsdogs_mobilenet_160.py
 # (the tfm.vision.augment.rotate demo). If you only need experiments 2-4, delete
 # that line and you can use a newer, unpinned tensorflow version instead.
+# setuptools < 82 preserves the pkg_resources module, which tf-models-official tensorflow-hub imports
 
-tf-models-official==2.19.1
-tensorflow==2.19.1
+tf-models-official>=2.20.0
+tensorflow>=2.20.0
 tensorflow-datasets>=4.9,<5.0
+tensorflow-metadata>=1.15.0,<2.0.0 # lower protobuf requirement to work with tensorflow
+protobuf>=6.31.1,<7.0.0 # 7.0.0 matches the ceiling for tensorflow
 numpy<2.0 # Need 1.x for tf-models-official functionality
 matplotlib>=3.7
+setuptools<82
+importlib_resources # needed from tensorflow-datasets, no setting needed
